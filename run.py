@@ -6,6 +6,8 @@ from helpers import prepare_dataset_nli, prepare_train_dataset_qa, \
     prepare_validation_dataset_qa, QuestionAnsweringTrainer, compute_accuracy
 import os
 import json
+from train import train_model
+
 
 NUM_PREPROCESSING_WORKERS = 2
 
@@ -166,7 +168,16 @@ def main():
     )
     # Train and/or evaluate
     if training_args.do_train:
-        trainer.train()
+        # trainer.train()
+        trainer = train_model(
+            model=model,
+            tokenizer=tokenizer,
+            train_dataset=train_dataset_featurized,
+            eval_dataset=eval_dataset_featurized,
+            training_args=training_args,  # Pass this instead of hardcoding in `train.py`
+            compute_metrics=compute_metrics,
+        )
+
         trainer.save_model()
         # If you want to customize the way the loss is computed, you should subclass Trainer and override the "compute_loss"
         # method (see https://huggingface.co/transformers/_modules/transformers/trainer.html#Trainer.compute_loss).
