@@ -1,5 +1,4 @@
-from transformers import Trainer, TrainingArguments
-from helpers import compute_accuracy
+from transformers import Trainer
 
 def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, compute_metrics=None):
     # Initialize Trainer
