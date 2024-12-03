@@ -60,93 +60,243 @@
         "label": "Neutral"
     },
     {
-        "premise": "A woman is painting a picture by the lake.",
-        "hypothesis": "A woman is not painting by the lake.",
-        "label": "Contradiction"
-      },
-      {
-        "premise": "The boy is eating an apple.",
-        "hypothesis": "The boy is not eating an apple.",
-        "label": "Contradiction"
-      },
-      {
-        "premise": "A teacher is giving a lecture in the classroom.",
-        "hypothesis": "The teacher is not speaking in the classroom.",
-        "label": "Contradiction"
-      },
-      {
-        "premise": "A cat is lying on the sofa.",
-        "hypothesis": "A feline is resting on the couch.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "The athlete is jogging in the park.",
-        "hypothesis": "The sportsperson is running in the park.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "The children are drawing pictures in their notebooks.",
-        "hypothesis": "The kids are sketching in their notebooks.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "Someone is sitting on a chair.",
-        "hypothesis": "The person is relaxing.",
-        "label": "Neutral"
-      },
-      {
-        "premise": "A woman is holding a book in her hands.",
-        "hypothesis": "The woman is reading.",
-        "label": "Neutral"
-      },
-      {
-        "premise": "A man is playing a musical instrument.",
-        "hypothesis": "The man is learning to play the guitar.",
-        "label": "Neutral"
-      },
-      {
-        "premise": "A bibliophile is perusing a rare manuscript.",
-        "hypothesis": "A book lover is reading a unique text.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "The ornithologist observed a kestrel in flight.",
-        "hypothesis": "The bird watcher saw a bird flying.",
-        "label": "Neutral"
-      },
-      {
-        "premise": "An artisan is crafting an intricate vase.",
-        "hypothesis": "The craftsman is creating a vase.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "The dog chased the ball into the garden.",
-        "hypothesis": "The ball was chased by the dog into the garden.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "The chef who prepared the meal is cleaning the kitchen.",
-        "hypothesis": "The kitchen is being cleaned by the chef who made the meal.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "The girl is singing while playing the guitar.",
-        "hypothesis": "Playing the guitar, the girl is singing.",
-        "label": "Entailment"
-      },
-      {
-        "premise": "Two friends are watching a movie in the theater.",
-        "hypothesis": "A pair of people are spending time together.",
-        "label": "Neutral"
-      },
-      {
-        "premise": "The painter is mixing colors on a palette.",
-        "hypothesis": "The artist is painting a masterpiece.",
-        "label": "Neutral"
-      },
-      {
-        "premise": "A group of people is hiking up the mountain.",
-        "hypothesis": "Several individuals are climbing Mount Everest.",
-        "label": "Neutral"
-      }
+      "premise": "A woman is painting a picture by the lake.",
+      "hypothesis": "A woman is not painting by the lake.",
+      "label": "Contradiction"
+    },
+    {
+      "premise": "The boy is eating an apple.",
+      "hypothesis": "The boy is not eating an apple.",
+      "label": "Contradiction"
+    },
+    {
+      "premise": "A teacher is giving a lecture in the classroom.",
+      "hypothesis": "The teacher is not speaking in the classroom.",
+      "label": "Contradiction"
+    },
+    {
+      "premise": "A cat is lying on the sofa.",
+      "hypothesis": "A feline is resting on the couch.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "The athlete is jogging in the park.",
+      "hypothesis": "The sportsperson is running in the park.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "The children are drawing pictures in their notebooks.",
+      "hypothesis": "The kids are sketching in their notebooks.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "Someone is sitting on a chair.",
+      "hypothesis": "The person is relaxing.",
+      "label": "Neutral"
+    },
+    {
+      "premise": "A woman is holding a book in her hands.",
+      "hypothesis": "The woman is reading.",
+      "label": "Neutral"
+    },
+    {
+      "premise": "A man is playing a musical instrument.",
+      "hypothesis": "The man is learning to play the guitar.",
+      "label": "Neutral"
+    },
+    {
+      "premise": "A bibliophile is perusing a rare manuscript.",
+      "hypothesis": "A book lover is reading a unique text.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "The ornithologist observed a kestrel in flight.",
+      "hypothesis": "The bird watcher saw a bird flying.",
+      "label": "Neutral"
+    },
+    {
+      "premise": "An artisan is crafting an intricate vase.",
+      "hypothesis": "The craftsman is creating a vase.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "The dog chased the ball into the garden.",
+      "hypothesis": "The ball was chased by the dog into the garden.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "The chef who prepared the meal is cleaning the kitchen.",
+      "hypothesis": "The kitchen is being cleaned by the chef who made the meal.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "The girl is singing while playing the guitar.",
+      "hypothesis": "Playing the guitar, the girl is singing.",
+      "label": "Entailment"
+    },
+    {
+      "premise": "Two friends are watching a movie in the theater.",
+      "hypothesis": "A pair of people are spending time together.",
+      "label": "Neutral"
+    },
+    {
+      "premise": "The painter is mixing colors on a palette.",
+      "hypothesis": "The artist is painting a masterpiece.",
+      "label": "Neutral"
+    },
+    {
+      "premise": "A group of people is hiking up the mountain.",
+      "hypothesis": "Several individuals are climbing Mount Everest.",
+      "label": "Neutral"
+    },
+    {
+        "premise": "The dog is running across the field.",
+        "hypothesis": "The dog is not running across the field.",
+        "label": "contradiction"
+    },
+    {
+        "premise": "The musician is performing a solo on stage.",
+        "hypothesis": "The musician is not performing on stage.",
+        "label": "contradiction"
+    },
+    {
+        "premise": "The children are building a sandcastle on the beach.",
+        "hypothesis": "The children are not creating anything.",
+        "label": "contradiction"
+    },
+    {
+        "premise": "A man is working on his laptop in a café.",
+        "hypothesis": "The man is not using his laptop.",
+        "label": "contradiction"
+    },
+    {
+        "premise": "A cat is hiding under the table.",
+        "hypothesis": "The cat is not underneath any furniture.",
+        "label": "contradiction"
+    },
+    {
+        "premise": "The boy is throwing stones into the lake.",
+        "hypothesis": "A child is tossing pebbles into the water.",
+        "label": "entailment"
+    },
+    {
+        "premise": "A woman is riding a bike on the trail.",
+        "hypothesis": "A lady is cycling along the path.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The chef is seasoning the dish before serving it.",
+        "hypothesis": "The cook is adding spices to the food.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The athlete is training at the gym.",
+        "hypothesis": "A sportsperson is working out at a fitness center.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The children are reading stories from a book.",
+        "hypothesis": "Kids are enjoying tales in a storybook.",
+        "label": "entailment"
+    },
+    {
+        "premise": "A man is looking at the stars through a telescope.",
+        "hypothesis": "A man is studying astronomy.",
+        "label": "neutral"
+    },
+    {
+        "premise": "A woman is painting a vase in her studio.",
+        "hypothesis": "An artist is decorating pottery.",
+        "label": "neutral"
+    },
+    {
+        "premise": "A dog is barking loudly in the backyard.",
+        "hypothesis": "An animal is making noise outside.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The researcher is analyzing data on a computer.",
+        "hypothesis": "Someone is working on a computer.",
+        "label": "neutral"
+    },
+    {
+        "premise": "A farmer is harvesting wheat in the field.",
+        "hypothesis": "A person is working outdoors.",
+        "label": "neutral"
+    },
+    {
+        "premise": "A linguist is studying the morphology of ancient languages.",
+        "hypothesis": "A scientist is analyzing old languages.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The ornithologist cataloged a rare ibis in the wetland.",
+        "hypothesis": "The bird watcher documented an unusual bird.",
+        "label": "entailment"
+    },
+    {
+        "premise": "A sommelier is evaluating the tannins of a red wine.",
+        "hypothesis": "A wine expert is tasting wine.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The astrophysicist observed an exoplanet orbiting a distant star.",
+        "hypothesis": "The scientist studied a planet outside the solar system.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The calligrapher is crafting intricate lettering on parchment.",
+        "hypothesis": "An artist is writing fancy letters on paper.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The boy kicked the ball into the goal.",
+        "hypothesis": "Into the goal, the boy kicked the ball.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The teacher explained the math problem to the students.",
+        "hypothesis": "To the students, the teacher explained the math problem.",
+        "label": "entailment"
+    },
+    {
+        "premise": "A woman is reading a novel by the window.",
+        "hypothesis": "By the window, a woman is reading a novel.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The chef prepared the dish with great care.",
+        "hypothesis": "With great care, the dish was prepared by the chef.",
+        "label": "entailment"
+    },
+    {
+        "premise": "The children are playing games in the living room.",
+        "hypothesis": "In the living room, the children are playing games.",
+        "label": "entailment"
+    },
+    {
+        "premise": "A pianist played a concerto at the music festival.",
+        "hypothesis": "A musician performed a piece of music.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The cat is purring contentedly on the couch.",
+        "hypothesis": "The feline is resting on the sofa.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The artist drew a landscape of the mountains.",
+        "hypothesis": "The artist sketched the scenery of a hilly region.",
+        "label": "neutral"
+    },
+    {
+        "premise": "A group of friends is chatting in the café.",
+        "hypothesis": "Several people are discussing something over coffee.",
+        "label": "neutral"
+    },
+    {
+        "premise": "The student solved a complex calculus equation.",
+        "hypothesis": "The student completed a math problem.",
+        "label": "neutral"
+    } 
 ]
