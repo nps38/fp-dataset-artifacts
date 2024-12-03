@@ -6,6 +6,7 @@ import torch
 model_name = "./trained_model"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
+count = 0
 
 # Load contrast set examples
 with open("contrast_set.json", "r") as f:
@@ -30,8 +31,12 @@ for example in contrast_set:
         predicted_label = label_mapping[predicted_label_id]
 
     # Print results
-    print(f"Premise: {premise}")
-    print(f"Hypothesis: {hypothesis}")
-    print(f"True Label: {true_label}")
-    print(f"Predicted Label: {predicted_label}")
-    print("-" * 50)
+    if true_label.lower() != predicted_label.lower():
+        count += 1
+        print(f"Premise: {premise}")
+        print(f"Hypothesis: {hypothesis}")
+        print(f"True Label: {true_label}")
+        print(f"Predicted Label: {predicted_label}")
+        print("-" * 50)
+        
+print(f"Error Count: {count}")
