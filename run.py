@@ -6,7 +6,7 @@ from helpers import prepare_dataset_nli, prepare_train_dataset_qa, \
     prepare_validation_dataset_qa, QuestionAnsweringTrainer, compute_accuracy
 import os
 import json
-from train import train_model
+from train import train_model, train_model_with_cartography
 
 
 NUM_PREPROCESSING_WORKERS = 2
@@ -169,7 +169,7 @@ def main():
     # Train and/or evaluate
     if training_args.do_train:
         # trainer.train()
-        trainer = train_model(
+        trainer = train_model_with_cartography(
             model=model,
             tokenizer=tokenizer,
             train_dataset=train_dataset_featurized,
