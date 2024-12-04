@@ -1,9 +1,28 @@
-from transformers import Trainer
+from transformers import Trainer, TrainingArguments
+from collections import defaultdict
+import torch
+import torch.nn as nn
 
 def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, compute_metrics=None):
-    from collections import defaultdict
-    import numpy as np
-    import torch
+    for module in model.modules():
+        if isinstance(module, nn.Dropout):
+            module.p = 0.1
+
+    training_args = TrainingArguments(
+        output_dir=training_args.output_dir,
+        evaluation_strategy=training_args.evaluation_strategy,
+        learning_rate=training_args.learning_rate,
+        per_device_train_batch_size=training_args.per_device_train_batch_size,
+        per_device_eval_batch_size=training_args.per_device_eval_batch_size,
+        num_train_epochs=training_args.num_train_epochs,
+        weight_decay=0.01,
+        max_grad_norm=1.0,
+        logging_dir=training_args.logging_dir,
+        logging_steps=training_args.logging_steps,
+        save_steps=training_args.save_steps,
+        save_total_limit=training_args.save_total_limit,
+        eval_steps=training_args.eval_steps,
+    )
 
     # Initialize Trainer
     trainer = Trainer(
@@ -15,7 +34,7 @@ def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, co
         compute_metrics=compute_metrics,
     )
 
-    # Perform initial training pass to collect predictions
+    # Perform initial training pass
     trainer.train()
 
     # Dataset cartography: collect metrics
@@ -66,10 +85,5 @@ def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, co
 
     # Train the model
     trainer.train()
-
-    # Save the final model
     trainer.save_model(training_args.output_dir)
-
     return trainer
-
-
