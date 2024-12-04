@@ -17,7 +17,7 @@ def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, co
     return trainer
 
 
-def train_model_with_cartography(model, tokenizer, train_dataset, eval_dataset, training_args, compute_metrics=None):
+def train_model_cartography(model, tokenizer, train_dataset, eval_dataset, training_args, compute_metrics=None):
     trainer = Trainer(
         model=model,
         args=training_args,
