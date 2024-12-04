@@ -6,7 +6,7 @@ from helpers import prepare_dataset_nli, prepare_train_dataset_qa, \
     prepare_validation_dataset_qa, QuestionAnsweringTrainer, compute_accuracy
 import os
 import json
-from train import train_model, train_model_with_cartography
+from train import train_model
 
 
 NUM_PREPROCESSING_WORKERS = 2
@@ -169,7 +169,7 @@ def main():
     # Train and/or evaluate
     if training_args.do_train:
         # trainer.train()
-        trainer = train_model_with_cartography(
+        trainer = train_model(
             model=model,
             tokenizer=tokenizer,
             train_dataset=train_dataset_featurized,
@@ -188,6 +188,7 @@ def main():
 
     if training_args.do_eval:
         results = trainer.evaluate(**eval_kwargs)
+        errors = []
 
         # To add custom metrics, you should replace the "compute_metrics" function (see comments above).
         #
@@ -219,7 +220,13 @@ def main():
                     example_with_prediction['predicted_label'] = int(eval_predictions.predictions[i].argmax())
                     f.write(json.dumps(example_with_prediction))
                     f.write('\n')
-
+                    if example_with_prediction['label'] != example_with_prediction['predicted_label']:
+                        errors.append(example_with_prediction)
+                        
+        with open(os.path.join(training_args.output_dir, 'incorrect_predictions.jsonl'), encoding='utf-8', mode='w') as f:
+            f.write(json.dumps(errors))
+            f.write('\n')
+                    
 
 if __name__ == "__main__":
     main()
