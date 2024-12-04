@@ -58,7 +58,7 @@ def train_model_with_cartography(model, tokenizer, train_dataset, eval_dataset, 
     def filter_dataset(dataset, indices):
         return dataset.select(indices)
 
-    refined_train_dataset = filter_dataset(train_dataset, ambiguous_indices)
+    refined_train_dataset = filter_dataset(train_dataset, ambiguous_indices + hard_indices)
 
     # Retrain the model with the refined dataset
     trainer = Trainer(
