@@ -39,4 +39,4 @@ for example in contrast_set:
         print(f"Predicted Label: {predicted_label}")
         print("-" * 50)
         
-print(f"Error Count: {count}")
+print(f"Error Count: {count/21}")

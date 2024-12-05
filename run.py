@@ -111,7 +111,10 @@ def main():
     train_dataset_featurized = None
     eval_dataset_featurized = None
     if training_args.do_train:
+        contrast_set = datasets.load_dataset('json', data_files='contrast_set.json')['train']  # 'train' split is used by default
         train_dataset = dataset['train']
+        train_dataset = datasets.concatenate_datasets([train_dataset, contrast_set])
+        train_dataset = train_dataset.shuffle(seed=42)
         if args.max_train_samples:
             train_dataset = train_dataset.select(range(args.max_train_samples))
         train_dataset_featurized = train_dataset.map(

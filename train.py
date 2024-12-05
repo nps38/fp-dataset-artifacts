@@ -1,6 +1,10 @@
-from transformers import Trainer
+from transformers import Trainer, TrainingArguments
 from collections import defaultdict
 import torch
+from transformers import pipeline
+from datasets import Dataset
+import random
+
 
 def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, compute_metrics=None):
     trainer = Trainer(
@@ -18,6 +22,17 @@ def train_model(model, tokenizer, train_dataset, eval_dataset, training_args, co
 
 
 def train_model_cartography(model, tokenizer, train_dataset, eval_dataset, training_args, compute_metrics=None):
+    training_args = TrainingArguments(
+        output_dir=training_args.output_dir,
+        learning_rate=1e-4,
+        lr_scheduler_type='cosine',
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=64,
+        num_train_epochs=training_args.num_train_epochs,
+        weight_decay=0.01,
+        logging_dir="./logs",
+        logging_steps=50,
+    )
     trainer = Trainer(
         model=model,
         args=training_args,
