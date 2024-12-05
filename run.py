@@ -1,4 +1,5 @@
 import datasets
+from datasets import Features, Value, ClassLabel
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, \
     AutoModelForQuestionAnswering, Trainer, TrainingArguments, HfArgumentParser
 import evaluate
@@ -111,8 +112,18 @@ def main():
     train_dataset_featurized = None
     eval_dataset_featurized = None
     if training_args.do_train:
-        contrast_set = datasets.load_dataset('json', data_files='contrast_set.json')['train']  # 'train' split is used by default
+        contrast_set = datasets.load_dataset('json', data_files='contrast_set.json')['train']
+        snli_label_class = ClassLabel(names=["entailment", "neutral", "contradiction"])
+        contrast_set = contrast_set.cast(
+        Features({
+            "premise": Value("string"),
+            "hypothesis": Value("string"),
+            "label": snli_label_class  # Convert to ClassLabel
+        })
+        )
+        print(contrast_set.features)
         train_dataset = dataset['train']
+        print(train_dataset)
         train_dataset = datasets.concatenate_datasets([train_dataset, contrast_set])
         train_dataset = train_dataset.shuffle(seed=42)
         if args.max_train_samples:
